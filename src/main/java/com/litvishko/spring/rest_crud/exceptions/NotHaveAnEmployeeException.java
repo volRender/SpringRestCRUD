@@ -4,4 +4,5 @@ public class NotHaveAnEmployeeException extends RuntimeException {
     public NotHaveAnEmployeeException(String message) {
         super(message);
     }
+
 }

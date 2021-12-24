@@ -55,4 +55,18 @@ public class MyController {
         return employee;
 
     }
+
+    @DeleteMapping("/employees/{id}")
+    public String deleteEmployee(@PathVariable int id) {
+
+        Employee employee = employeeService.showEmp(id);
+        if(employee == null) {
+            throw new NotHaveAnEmployeeException("There is no employee with ID = " + id);
+        }
+
+        employeeService.deleteEmp(id);
+
+        return "Employee with id = " + id + " was deleted.";
+
+    }
 }
